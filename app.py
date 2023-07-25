@@ -19,6 +19,9 @@ if not os.path.isfile(model_filepath):
         local_dir=config['models_path'],
     )
 
+threads = config['threads'] if config['threads'] <= os.cpu_count() else os.cpu_count() - 1
+
+
 @dataclass
 class GenerationConfig:
     temperature: float
@@ -80,8 +83,7 @@ generation_config = GenerationConfig(
     seed=42,
     reset=False,
     stream=True,  # reset history (cache)
-    # threads=int(os.cpu_count() / 2),  # adjust for your CPU
-    threads=os.cpu_count() - 2,  # adjust for your CPU
+    threads=threads,
     stop=['<|im_end|>', '|<'],
 )
 
