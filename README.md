@@ -1,24 +1,25 @@
-# MPT-30B model using CPU with streamlit interface
+# MPT-30B Model Inference Using CPU with Streamlit Interface
 
-Interference with MPT-30B model using CPU with simple streamlit interface. The code runs ggml quantized model.
+This project allows for inference with the MPT-30B model using a CPU and a simple Streamlit interface. The code runs the ggml quantized model.
 
 ## Requirements
-Min 32GB of ram.
+A minimum of 32GB of RAM is required.
 
 ## Setup
-Put number of threads you want to use in config.json and directory the model will be stored. 
+Specify the number of threads you want to use and the directory where the model will be stored in the `config.json` file.
 
-Environment:
+Set up the environment:
 ```bash
-python -m venv env && source env
+python -m venv env
+source env/bin/activate
 ```
 
-Dependencies: 
+Install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-Run streamlit app:
+Run the Streamlit app:
 ```bash
 streamlit run app.py
 ```
